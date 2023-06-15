@@ -66,6 +66,26 @@ class _HomePageState extends State<HomePage> {
       );
     }
 
+    Widget rightArrowBtn({required pageIndex}) {
+      return Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: IconButton(
+          onPressed: () {
+            setState(() => widget.onPageChanged(pageIndex));
+          },
+          icon: const Icon(
+            Icons.arrow_forward_rounded,
+            size: 32,
+          ),
+          style: ButtonStyle(
+              backgroundColor:
+                  MaterialStateColor.resolveWith((states) => Colors.green),
+              foregroundColor:
+                  MaterialStateColor.resolveWith((states) => Colors.white)),
+        ),
+      );
+    }
+
     return ListView(
       children: [
         SingleChildScrollView(
@@ -147,16 +167,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          IconButton(
-                              onPressed: () {
-                                setState(() => widget.onPageChanged(1));
-                              },
-                              icon: const Icon(
-                                Icons.arrow_forward_rounded,
-                                size: 36,
-                              ))
-                        ],
+                        children: [rightArrowBtn(pageIndex: 1)],
                       )
                     ],
                   ),
@@ -192,16 +203,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          IconButton(
-                              onPressed: () {
-                                setState(() => widget.onPageChanged(3));
-                              },
-                              icon: const Icon(
-                                Icons.arrow_forward_rounded,
-                                size: 36,
-                              ))
-                        ],
+                        children: [rightArrowBtn(pageIndex: 3)],
                       )
                     ],
                   ),
@@ -246,16 +248,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          IconButton(
-                              onPressed: () {
-                                setState(() => widget.onPageChanged(4));
-                              },
-                              icon: const Icon(
-                                Icons.arrow_forward_rounded,
-                                size: 36,
-                              ))
-                        ],
+                        children: [rightArrowBtn(pageIndex: 4)],
                       )
                     ],
                   ),
