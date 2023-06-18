@@ -1,7 +1,12 @@
 import 'package:easi_dial/home_screen.dart';
+import 'package:easy_dynamic_theme/easy_dynamic_theme.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+import 'theming.dart';
+
+void main() => runApp(EasyDynamicThemeWidget(
+      child: const MyApp(),
+    ));
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -11,7 +16,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "EasiDial",
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(useMaterial3: true, primarySwatch: Colors.indigo),
+      theme: lightThemeData,
+      darkTheme: darkThemeData,
+      themeMode: EasyDynamicTheme.of(context).themeMode,
       home: const HomeScreen(),
     );
   }

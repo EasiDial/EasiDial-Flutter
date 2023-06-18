@@ -37,34 +37,39 @@ class _HomeScreenState extends State<HomeScreen> {
     "Learn",
   ];
 
-  Widget _getBottomBar() {
-    return BottomNavigationBar(
+  List<String> appbarTitles = const [
+    "EasiDial Care",
+    "Hospitals",
+    "Map",
+    "Ambulances",
+    "Learn",
+  ];
+
+  Widget _getBottomBar() => BottomNavigationBar(
         currentIndex: currentPageIndex,
-        onTap: (index) {
-          setState(() {
-            currentPageIndex = index;
-          });
-        },
+        onTap: (index) => setState(() => currentPageIndex = index),
         backgroundColor:
             Theme.of(context).bottomNavigationBarTheme.backgroundColor,
         type: BottomNavigationBarType.fixed,
         items: List.generate(
-            5,
-            (index) => BottomNavigationBarItem(
-                  icon: Icon(bottomBarIconsData[index]),
-                  label: bottomBarIconLabels[index],
-                )));
-  }
+          bottomBarIconsData.length,
+          (index) => BottomNavigationBarItem(
+            icon: Icon(bottomBarIconsData[index]),
+            label: bottomBarIconLabels[index],
+          ),
+          growable: false,
+        ),
+        selectedIconTheme: IconThemeData(
+          color: Theme.of(context).primaryColor,
+        ),
+        selectedItemColor: Theme.of(context).primaryColor,
+      );
 
   @override
   Widget build(BuildContext context) {
     List<Widget> homeScreenPages = [
       HomePage(
-        onPageChanged: (index) {
-          setState(() {
-            currentPageIndex = index;
-          });
-        },
+        onPageChanged: (index) => setState(() => currentPageIndex = index),
       ),
       const HospitalsPage(),
       const MapPage(),
@@ -153,7 +158,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       appBar: AppBar(
-        title: const Text("EasiDial Care"),
+        title: Text(appbarTitles[currentPageIndex]),
         actions: [
           SizedBox(
             height: 32,

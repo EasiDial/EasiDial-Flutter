@@ -78,10 +78,10 @@ class _HomePageState extends State<HomePage> {
             size: 32,
           ),
           style: ButtonStyle(
-              backgroundColor:
-                  MaterialStateColor.resolveWith((states) => Colors.green),
-              foregroundColor:
-                  MaterialStateColor.resolveWith((states) => Colors.white)),
+              backgroundColor: MaterialStateColor.resolveWith(
+                  (states) => Theme.of(context).primaryColor),
+              foregroundColor: MaterialStateColor.resolveWith(
+                  (states) => Theme.of(context).cardColor)),
         ),
       );
     }
