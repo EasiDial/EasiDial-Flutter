@@ -37,10 +37,27 @@ dependencies:
   cupertino_icons: ^1.0.2
   page_transition: ^2.0.9
   easy_dynamic_theme: ^2.3.1
+  firebase_core: ^2.14.0
+  firebase_auth: ^4.6.3
+  firebase_ui_auth: ^1.4.3
+  firebase_ui_oauth_google: ^1.2.3
+  cloud_firestore: ^4.8.1
+  firebase_messaging: ^14.6.3
+  firebase_storage: ^11.2.3
+  cached_network_image: ^3.2.3
+  photo_view: ^0.14.0
+  share: ^2.0.4
+  url_launcher: ^6.1.11
+  font_awesome_flutter: ^10.4.0
+  shared_preferences: ^2.1.2
+  flutter_phone_direct_caller: ^2.1.1
+  permission_handler: ^10.3.0
+  restart_app: ^1.2.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  change_app_package_name: ^1.0.0
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -63,8 +80,6 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

@@ -1,3 +1,4 @@
+import 'package:easi_dial/auth_gate.dart';
 import 'package:easi_dial/pages/about_us.dart';
 import 'package:easi_dial/pages/ambulances.dart';
 import 'package:easi_dial/pages/emergency_button.dart';
@@ -9,7 +10,10 @@ import 'package:easi_dial/pages/map.dart';
 import 'package:easi_dial/pages/medical_information.dart';
 import 'package:easi_dial/pages/profile.dart';
 import 'package:easi_dial/utils.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+
+import 'pages/shared.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -66,6 +70,13 @@ class _HomeScreenState extends State<HomeScreen> {
       );
 
   @override
+  void initState() {
+    super.initState();
+
+    userExists = FirebaseAuth.instance.currentUser != null;
+  }
+
+  @override
   Widget build(BuildContext context) {
     List<Widget> homeScreenPages = [
       HomePage(
@@ -97,7 +108,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     leading: const Icon(Icons.account_circle_outlined),
                     title: const Text("Profile"),
                     onTap: () {
-                      nextPage(context: context, page: const ProfilePage());
+                      nextPage(
+                          context: context,
+                          page: userExists
+                              ? const ProfilePage()
+                              : const AuthGate());
                     },
                   ),
                 ),

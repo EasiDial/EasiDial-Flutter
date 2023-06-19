@@ -1,3 +1,4 @@
+import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -8,8 +9,24 @@ class ProfilePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text("Profile"),
+        title: const Text("Profile"),
+        actions: [
+          PopupMenuButton(itemBuilder: (ctx) {
+            return [
+              const PopupMenuItem(
+                child: Row(
+                  children: [
+                    Icon(Icons.edit),
+                    SizedBox(width: 20),
+                    Text("Edit image")
+                  ],
+                ),
+              ),
+            ];
+          })
+        ],
       ),
+      body: const ProfileScreen(),
     );
   }
 }
