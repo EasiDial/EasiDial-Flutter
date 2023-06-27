@@ -1,3 +1,4 @@
 {
-    "cmake.sourceDirectory": "/home/scelland/Documents/Projects/Vercel/EasiDialOrg/EasiDial-Flutter/easi_dial/linux"
+    "cmake.sourceDirectory": "/home/scelland/Documents/Projects/Vercel/EasiDialOrg/EasiDial-Flutter/easi_dial/linux",
+    "cmake.configureOnOpen": true
 }
